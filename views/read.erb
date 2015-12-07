@@ -1,0 +1,52 @@
+<h2>Hey<%= @user_name %>!</h2>
+<p>You are logged in!</p>
+<hr>
+<h3>Item List</h3>
+
+<% if @message %>
+  <strong><%= @message %></strong>
+<% end %>
+
+<li><a href='/item/create'>Add Item</a></li>
+
+<table>
+  <thead>
+    <th>
+      Id
+    </th>
+    <th>
+      Item Name
+    </th>
+    <th>
+      Quantity
+    </th>
+    <th>
+      Update?
+    </th>
+    <th>
+      Destroy?
+    </th>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <%= item.name %>
+        </td>
+        <td>
+          <%= item.quantity %>
+        </td>
+        <td>
+          <a href='/item/update/<%= item.id %>'>Update</a>
+        </td>
+        <td>
+          <a href='/item/destroy/<%= item.id %>'>Destroy</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,10 @@
+<h3>Destroy Item</h3>
+
+<p>
+  Sure you want to remove <em><%= @item.name %></em>
+</p>
+
+<form action="/item/destroy" method="post">
+  <input type="hidden" name="id" value="<%= @item.id %>">
+  <input type="submit" value="Remove">
+</form>
